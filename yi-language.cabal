@@ -1,5 +1,5 @@
 name:                yi-language
-version:             0.1.0.1
+version:             0.1.0.2
 synopsis:            Collection of language-related Yi libraries.
 description:         Collection of language-related Yi libraries: lexers, scanners…
 homepage:            https://github.com/yi-editor/yi-language
@@ -57,6 +57,7 @@ library
                        , regex-tdfa >= 1.1 && <1.3
                        , transformers-base
                        , unordered-containers >= 0.1.3 && < 0.3
+                       , derive
 
   hs-source-dirs:      src
   build-tools:         alex >= 3.0.3

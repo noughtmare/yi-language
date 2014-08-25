@@ -1,4 +1,4 @@
-yi-lexers
+yi-language
 =========
 
-Collection of lexers used by the Yi text editor.
+Collection of language modules used by the Yi text editor.
