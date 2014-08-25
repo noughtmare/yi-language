@@ -15,33 +15,33 @@ cabal-version:       >=1.10
 library
   exposed-modules:
       Yi.Buffer.Basic
-    , Yi.Style
-    , Yi.Style.Library
-    , Yi.Lexer.JSON
     , Yi.Lexer.Abella
     , Yi.Lexer.Alex
-    , Yi.Lexer.GNUMake
-    , Yi.Lexer.LiterateHaskell
-    , Yi.Lexer.Perl
-    , Yi.Lexer.Ruby
-    , Yi.Lexer.SVNCommit
-    , Yi.Lexer.Cplusplus
-    , Yi.Lexer.OCaml
-    , Yi.Lexer.ObjectiveC
-    , Yi.Lexer.GitCommit
-    , Yi.Lexer.Compilation
-    , Yi.Lexer.Whitespace
-    , Yi.Lexer.Latex
-    , Yi.Lexer.Java
-    , Yi.Lexer.Srmc
-    , Yi.Lexer.Python
-    , Yi.Lexer.JavaScript
-    , Yi.Lexer.Ott
-    , Yi.Lexer.Haskell
     , Yi.Lexer.C
     , Yi.Lexer.Cabal
+    , Yi.Lexer.Compilation
+    , Yi.Lexer.Cplusplus
+    , Yi.Lexer.GNUMake
+    , Yi.Lexer.GitCommit
+    , Yi.Lexer.Haskell
+    , Yi.Lexer.JSON
+    , Yi.Lexer.Java
+    , Yi.Lexer.JavaScript
+    , Yi.Lexer.Latex
+    , Yi.Lexer.LiterateHaskell
+    , Yi.Lexer.OCaml
+    , Yi.Lexer.ObjectiveC
+    , Yi.Lexer.Ott
+    , Yi.Lexer.Perl
+    , Yi.Lexer.Python
+    , Yi.Lexer.Ruby
+    , Yi.Lexer.SVNCommit
+    , Yi.Lexer.Srmc
+    , Yi.Lexer.Whitespace
     , Yi.Regex
     , Yi.Region
+    , Yi.Style
+    , Yi.Style.Library
     , Yi.Syntax
     , Yi.Utils
 
