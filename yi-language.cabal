@@ -1,8 +1,8 @@
 name:                yi-language
-version:             0.1.0.0
+version:             0.1.0.1
 synopsis:            Collection of language-related Yi libraries.
 description:         Collection of language-related Yi libraries: lexers, scanners…
-homepage:            https://github.com/yi-editor/yi-lexers
+homepage:            https://github.com/yi-editor/yi-language
 license:             GPL-2
 license-file:        LICENSE
 author:              Mateusz Kowalczyk
