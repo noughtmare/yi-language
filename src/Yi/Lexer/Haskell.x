@@ -50,7 +50,7 @@ $nl        = [\n\r]
 @anyid = (@varid | @conid)
 @anyTHid = [$small $large] [$alpha $digit]*
 @qual   = (@conid ".")*
-@varsym = $symbol $symchar*
+@varsym = $symbol $symchar* | [⤜ ⤚ ⤛ ⤙ ★]
 @consym = \: $symchar*
 
 @decimal     = $digit+
@@ -103,6 +103,7 @@ haskell :-
   $special                                      { cs $ \(c:_) -> Special c }
   "deriving"                                    { c (Reserved Deriving) }
   "forall"                                      { c (Reserved Forall) }
+  "∀"                                           { c (Reserved Forall) }
   @reservedid                                   { c (Reserved Other) }
   "hiding"                                      { c (Reserved Hiding) }
   "module"                                      { c (Reserved Module) }
@@ -127,13 +128,13 @@ haskell :-
   "|"                                           { c (ReservedOp Pipe) }
   "="                                           { c (ReservedOp Equal) }
   \\                                            { c (ReservedOp BackSlash) }
-  "<-"                                          { c (ReservedOp LeftArrow) }
-  "->"                                          { c (ReservedOp RightArrow) }
+  "<-" | "←"                                    { c (ReservedOp LeftArrow) }
+  "->" | "→"                                    { c (ReservedOp RightArrow) }
   ".."                                          { c (ReservedOp DoubleDot) }
   "@"                                           { c (ReservedOp Arobase) }
   "~"                                           { c (ReservedOp Tilda) }
-  "=>"                                          { c (ReservedOp DoubleRightArrow) }
-  "::"                                          { c (ReservedOp DoubleColon) }
+  "=>" | "⇒"                                    { c (ReservedOp DoubleRightArrow) }
+  "::" | "∷"                                    { c (ReservedOp DoubleColon) }
   @qual @varsym                                 { cs Operator }
   @qual @consym                                 { cs ConsOperator }
 

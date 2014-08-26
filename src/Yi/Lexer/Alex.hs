@@ -54,7 +54,7 @@ utf8Encode = map fromIntegral . go . ord
 type Byte = Word8
 
 type IndexedStr = [(Point, Char)]
-type AlexInput = (Char, [Byte],IndexedStr)
+type AlexInput = (Char, [Byte], IndexedStr)
 type Action hlState token = IndexedStr -> hlState -> (hlState, token)
 
 -- | Lexer state
