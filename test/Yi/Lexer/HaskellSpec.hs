@@ -58,6 +58,7 @@ main = hspec spec
 spec :: Spec
 spec = do
   describe "lexer tests" $ do
-    "Simple1.hs" `lexesToS` [ritFile|test/test_data/Simple1.hs_Token|]
-    "Simple1Unicode.hs" `lexesToS` [ritFile|test/test_data/Simple1Unicode.hs_Token|]
+    pending "re-enable tests when have something better"
+    -- "Simple1.hs" `lexesToS` [ritFile|test/test_data/Simple1.hs_Token|]
+    -- "Simple1Unicode.hs" `lexesToS` [ritFile|test/test_data/Simple1Unicode.hs_Token|]
     -- "UnicodeLiteral.hs" `lexesTo` [ritFile|test/test_data/UnicodeLiteral.hs_TToken|]
