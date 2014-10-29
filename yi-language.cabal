@@ -1,5 +1,5 @@
 name:                yi-language
-version:             0.1.0.7
+version:             0.1.0.8
 synopsis:            Collection of language-related Yi libraries.
 description:         Collection of language-related Yi libraries: lexers, scanners…
 homepage:            https://github.com/yi-editor/yi-language
@@ -52,7 +52,7 @@ library
                        , template-haskell >= 2.4
                        , containers
                        , hashable >=1.1.2.5
-                       , lens >= 4.4.0.1
+                       , lens >= 4.5
                        , oo-prototypes
                        , pointedlist >= 0.5
                        , regex-base ==0.93.*
@@ -90,7 +90,7 @@ test-suite spec
     , filepath
     , hashable >=1.1.2.5
     , hspec
-    , lens >= 4.4.0.1
+    , lens >= 4.5
     , pointedlist >= 0.5
     , regex-base ==0.93.*
     , regex-tdfa >= 1.1 && <1.3

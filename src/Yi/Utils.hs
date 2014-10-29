@@ -127,7 +127,7 @@ instance (Eq k, Hashable k, Binary k, Binary v) => Binary (HashMap.HashMap k v) 
 
 makeClassyWithSuffix :: String -> THS.Name -> THS.Q [THS.Dec]
 makeClassyWithSuffix s = makeLensesWith (classyRules
-  & lensField .~ (\_ n -> addSuffix n s)
+  & lensField .~ (\_ _ n -> addSuffix n s)
   & lensClass .~ classy)
   where
     classy :: THS.Name -> Maybe (THS.Name, THS.Name)
@@ -141,4 +141,4 @@ addSuffix n s = [TopName $ THS.mkName $ THS.nameBase n ++ s]
 
 makeLensesWithSuffix :: String -> THS.Name -> THS.Q [THS.Dec]
 makeLensesWithSuffix s =
-  makeLensesWith (defaultFieldRules & lensField .~ (\_ n -> addSuffix n s))
+  makeLensesWith (defaultFieldRules & lensField .~ (\_ _ n -> addSuffix n s))
