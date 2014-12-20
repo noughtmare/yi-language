@@ -19,6 +19,7 @@ library
     , Yi.Lexer.Alex
     , Yi.Lexer.C
     , Yi.Lexer.Cabal
+    , Yi.Lexer.Clojure
     , Yi.Lexer.Compilation
     , Yi.Lexer.Cplusplus
     , Yi.Lexer.GNUMake
