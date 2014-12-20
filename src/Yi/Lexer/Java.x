@@ -162,10 +162,10 @@ java :-
 
  @decimal
   | 0[oO] @octal
-  | 0[xX] @hexadecimal                          { c defaultStyle }
+  | 0[xX] @hexadecimal                          { c numberStyle }
 
  @decimal \. @decimal @exponent?
-  | @decimal @exponent                          { c defaultStyle }
+  | @decimal @exponent                          { c numberStyle }
 
  \' ($graphic # [\'\\] | " " | @escape) \'      { c stringStyle }
  \" @string* \"                                 { c stringStyle }
