@@ -1,22 +1,20 @@
-{-# LANGUAGE FlexibleContexts, TemplateHaskell, RecordWildCards,
-  CPP, StandaloneDeriving, DeriveGeneric #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE DeriveGeneric #-}
+
 -- Copyright (c) Jean-Philippe Bernardy 2008
 module Yi.Regex
-  (
-   SearchOption(..), makeSearchOptsM,
-   SearchExp(..), searchString, searchRegex, emptySearch,
-   emptyRegex,
-   regexEscapeString,
-   module Text.Regex.TDFA,
-   )
-where
+  ( SearchOption(..), makeSearchOptsM
+  , SearchExp(..), searchString, searchRegex, emptySearch
+  , emptyRegex
+  , regexEscapeString
+  , module Text.Regex.TDFA
+  ) where
 
 import Data.Binary
-#if __GLASGOW_HASKELL__ < 708
-import Data.DeriveTH
-#else
 import GHC.Generics (Generic)
-#endif
 import Text.Regex.TDFA
 import Text.Regex.TDFA.Pattern
 import Control.Applicative
@@ -26,11 +24,12 @@ import Text.Regex.TDFA.TDFA(patternToRegex)
 import Yi.Buffer.Basic (Direction(..))
 
 -- input string, regexexp, backward regex.
-data SearchExp = SearchExp { seInput        :: String
-                           , seCompiled     :: Regex
-                           , seBackCompiled :: Regex
-                           , seOptions      :: [SearchOption]
-                           }
+data SearchExp = SearchExp
+    { seInput        :: String
+    , seCompiled     :: Regex
+    , seBackCompiled :: Regex
+    , seOptions      :: [SearchOption]
+    }
 
 searchString :: SearchExp -> String
 searchString = seInput
@@ -50,14 +49,9 @@ data SearchOption
     = IgnoreCase   -- ^ Compile for matching that ignores char case
     | NoNewLine    -- ^ Compile for newline-insensitive matching
     | QuoteRegex   -- ^ Treat the input not as a regex but as a literal string to search for.
-    deriving Eq
+    deriving (Eq, Generic)
 
-#if __GLASGOW_HASKELL__ < 708
-$(derive makeBinary ''SearchOption)
-#else
-deriving instance Generic SearchOption
 instance Binary SearchOption
-#endif
 
 searchOpt :: SearchOption -> CompOption -> CompOption
 searchOpt IgnoreCase = \o->o{caseSensitive = False}
