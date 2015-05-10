@@ -1,7 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
@@ -10,8 +9,7 @@
 -- | This module defines the Region ADT
 
 module Yi.Region
-  (
-   Region
+  ( Region
   , emptyRegion
   , regionIsEmpty
   , mkRegion, mkRegion', mkSizeRegion
@@ -25,35 +23,28 @@ module Yi.Region
   , intersectRegion
   , unionRegion
   , regionFirst, regionLast, regionsOverlap
-  )
-where
+  ) where
+
 import Yi.Buffer.Basic
 import Yi.Utils
 import Data.Typeable
 import Data.Binary
-#if __GLASGOW_HASKELL__ < 708
-import Data.DeriveTH
-#else
 import GHC.Generics (Generic)
-#endif
 
 #ifdef TESTING
 import Test.QuickCheck
 #endif
 
 -- | The region data type.
---The region is semi open: it includes the start but not the end bound. This allows simpler region-manipulation algorithms.
+-- The region is semi open: it includes the start but not the end bound.
+-- This allows simpler region-manipulation algorithms.
 -- Invariant : regionStart r <= regionEnd r
-data Region = Region {regionDirection :: !Direction,
-                      regionStart, regionEnd :: !Point}
-                 deriving (Typeable)
+data Region = Region
+    { regionDirection :: !Direction
+    , regionStart, regionEnd :: !Point
+    } deriving (Typeable, Generic)
 
-#if __GLASGOW_HASKELL__ < 708
-$(derive makeBinary ''Region)
-#else
-deriving instance Generic Region
 instance Binary Region
-#endif
 
 #ifdef TESTING
 instance Arbitrary Region where
