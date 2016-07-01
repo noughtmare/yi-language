@@ -16,7 +16,7 @@
 module Yi.Utils where
 
 import           Control.Applicative
-import           Control.Lens hiding (cons)
+import           Lens.Micro.Platform hiding (cons)
 import           Control.Monad.Base
 import           Data.Binary
 import           Data.Char (toLower)
@@ -141,4 +141,4 @@ addSuffix n s = [TopName $ THS.mkName $ THS.nameBase n ++ s]
 
 makeLensesWithSuffix :: String -> THS.Name -> THS.Q [THS.Dec]
 makeLensesWithSuffix s =
-  makeLensesWith (defaultFieldRules & lensField .~ (\_ _ n -> addSuffix n s))
+  makeLensesWith (lensRules & lensField .~ (\_ _ n -> addSuffix n s))
