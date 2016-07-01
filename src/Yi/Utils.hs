@@ -16,7 +16,7 @@
 module Yi.Utils where
 
 import           Control.Applicative
-import           Lens.Micro.Platform hiding (cons)
+import           Lens.Micro.Platform
 import           Control.Monad.Base
 import           Data.Binary
 import           Data.Char (toLower)
