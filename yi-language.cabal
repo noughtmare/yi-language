@@ -1,5 +1,5 @@
 name:                yi-language
-version:             0.2.0
+version:             0.2.1
 synopsis:            Collection of language-related Yi libraries.
 description:         Collection of language-related Yi libraries: lexers, scanners…
 homepage:            https://github.com/yi-editor/yi-language
