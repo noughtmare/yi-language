@@ -18,8 +18,7 @@
 module Yi.Lexer.Alex ( module Yi.Lexer.Alex
                      , (+~), (~-), Size(..), Stroke ) where
 
-import           Control.Lens (_1, view)
-import           Control.Lens.TH (makeLenses)
+import           Lens.Micro.Platform (_1, view, makeLenses)
 import qualified Data.Bits
 import           Data.Char (ord)
 import           Data.Function (on)
