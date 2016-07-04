@@ -18,7 +18,7 @@ import GHC.Generics (Generic)
 import Text.Regex.TDFA
 import Text.Regex.TDFA.Pattern
 import Control.Applicative
-import Control.Lens hiding (re)
+import Lens.Micro.Platform
 import Text.Regex.TDFA.ReadRegex(parseRegex)
 import Text.Regex.TDFA.TDFA(patternToRegex)
 import Yi.Buffer.Basic (Direction(..))
@@ -126,6 +126,17 @@ allow a person to understand how the output of each stage of the regex-tdfa code
 to the input pattern.
 
 -}
+
+transform :: Plated a => (a -> a) -> a -> a
+transform = transformOf plate
+
+transformOf :: ASetter' a a -> (a -> a) -> a -> a
+transformOf l f = go
+  where
+    go = f . over l go
+
+class Plated a where
+    plate :: Traversal' a a
 
 instance Plated Pattern where
     plate f (PGroup x p) = PGroup <$> pure x <*> f p
