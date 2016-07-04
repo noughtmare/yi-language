@@ -25,12 +25,10 @@ library
     , Yi.Lexer.Cplusplus
     , Yi.Lexer.GNUMake
     , Yi.Lexer.GitCommit
-    , Yi.Lexer.Haskell
     , Yi.Lexer.JSON
     , Yi.Lexer.Java
     , Yi.Lexer.JavaScript
     , Yi.Lexer.Latex
-    , Yi.Lexer.LiterateHaskell
     , Yi.Lexer.OCaml
     , Yi.Lexer.ObjectiveC
     , Yi.Lexer.Ott
