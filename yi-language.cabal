@@ -27,7 +27,6 @@ library
     , Yi.Lexer.GitCommit
     , Yi.Lexer.JSON
     , Yi.Lexer.Java
-    , Yi.Lexer.JavaScript
     , Yi.Lexer.Latex
     , Yi.Lexer.OCaml
     , Yi.Lexer.ObjectiveC
